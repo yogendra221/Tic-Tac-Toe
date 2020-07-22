@@ -16,10 +16,16 @@ let winningMatrix = [
     check = [],
     cells = document.getElementsByClassName("cell"),
     resetButton = document.getElementById("reset"),
-    message = document.getElementById("heading");
+    message = document.getElementById("heading"),
+    player = document.getElementsByClassName("player")[0];
 
 function changeCurrentPlayer(){
     currentPlayer = (currentPlayer === 'X') ? 'O' : 'X';
+    displayCurrentPlayer();
+}
+
+function displayCurrentPlayer(){
+    player.textContent = currentPlayer;
 }
 
 function gameCompleted(flag){
@@ -72,3 +78,5 @@ for(let i = 0;i<cells.length; i++){
 resetButton.addEventListener("click", function(){
     window.location.reload();
 });
+
+displayCurrentPlayer();
